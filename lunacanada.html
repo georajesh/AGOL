@@ -20,15 +20,16 @@
     </style>
 
     <script src="https://js.arcgis.com/4.28/"></script>
-
     <script>
       require(["esri/views/MapView", "esri/widgets/Legend", "esri/widgets/Expand", "esri/WebMap"],
       (
+        esriConfig,
         MapView,
         Legend,
         Expand,
         WebMap
       ) => {
+        esriConfig.apiKey = "AAPK4f97abab6730410da8f2218ed24cbb28SAhheMvbvBJM7cNHYp1SPe08ov_vSA6yRRZlBGYiHtsCgPUWGNBvS_Mf32w9uAtT";
         const webmap = new WebMap({
           portalItem: {
             // autocasts as new PortalItem()
