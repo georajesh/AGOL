@@ -1,8 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Canada Map referencing Luna Server Feature Layer</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+
+    <title>Provinces of Canada</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
 
     <style>
       html,
@@ -14,6 +18,9 @@
         width: 100%;
       }
     </style>
+
+    <script src="https://js.arcgis.com/4.28/"></script>
+
     <script>
       require(["esri/views/MapView", "esri/widgets/Legend", "esri/widgets/Expand", "esri/WebMap"],
       (
@@ -49,9 +56,8 @@
         view.ui.add(legend, "bottom-left");
       });
     </script>
-    
   </head>
   <body>
-    <div id="viewDiv"></div>
+    <div id="viewDiv"></div>  
   </body>
 </html>
