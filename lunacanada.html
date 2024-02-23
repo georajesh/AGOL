@@ -15,15 +15,38 @@
       }
     </style>
     <script>
-      require(["esri/config", "esri/Map", "esri/views/MapView"], function(esriConfig, Map, MapView) {
-
-        esriConfig.apiKey = "AAPK7ea8e38f6b4b4f969ab170c41c01634akao_m4e5gL3AyABug_bvD9dN7kbXw7BSISXg4Y558XYUVj59ej6DtByYM0Cms4Tz";
-
-        const map = new Map({
-          basemap: "arcgis-topographic" // basemap styles service
-          layer: url("https://luna.flemingcollege.ca/arcgis/rest/services/geom99pm/RDulalCanada/MapServer/0")
+      require(["esri/views/MapView", "esri/widgets/Legend", "esri/widgets/Expand", "esri/WebMap"],
+      (
+        MapView,
+        Legend,
+        Expand,
+        WebMap
+      ) => {
+        const webmap = new WebMap({
+          portalItem: {
+            // autocasts as new PortalItem()
+            id: "d220564785954d018cd26b91e22abb43"
+          }
         });
 
+        const view = new MapView({
+          container: "viewDiv",
+          map: webmap
+        });
+
+        // add a legend widget instance to the view
+        // and set the style to 'card'. This is a
+        // responsive style, which is good for mobile devices
+
+        const legend = new Expand({
+          content: new Legend({
+            view: view,
+            style: "card" // other styles include 'classic'
+          }),
+          view: view,
+          expanded: true
+        });
+        view.ui.add(legend, "bottom-left");
       });
     </script>
     
