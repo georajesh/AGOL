@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
 
-    <title>Risk Assessment Web Map</title>
+    <title>Canada Provinces</title>
 
     <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
 
@@ -22,13 +22,13 @@
     <script src="https://js.arcgis.com/4.28/"></script>
 
     <script>
-      require(["esri/views/MapView", "esri/widgets/Legend", "esri/widgets/Expand", "esri/WebMap"],
+      require(["esri/config", "esri/views/MapView", "esri/widgets/Legend", "esri/widgets/Expand", "esri/WebMap"],
       function(
+        esriConfig,
         MapView,
         Legend,
         Expand,
-        WebMap,
-        esriConfig
+        WebMap
       ) 
       {
         esriConfig.apiKey = "AAPK7ea8e38f6b4b4f969ab170c41c01634akao_m4e5gL3AyABug_bvD9dN7kbXw7BSISXg4Y558XYUVj59ej6DtByYM0Cms4Tz";
