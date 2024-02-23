@@ -22,16 +22,13 @@
     <script src="https://js.arcgis.com/4.28/"></script>
 
     <script>
-      require(["esri/config", "esri/views/MapView", "esri/widgets/Legend", "esri/widgets/Expand", "esri/WebMap"],
-      function(
-        esriConfig,
+      require(["esri/views/MapView", "esri/widgets/Legend", "esri/widgets/Expand", "esri/WebMap"],
+      (
         MapView,
         Legend,
         Expand,
         WebMap
-      ) 
-      {
-        esriConfig.apiKey = "AAPK7ea8e38f6b4b4f969ab170c41c01634akao_m4e5gL3AyABug_bvD9dN7kbXw7BSISXg4Y558XYUVj59ej6DtByYM0Cms4Tz";
+      ) =>{
         const webmap = new WebMap({
           portalItem: {
             // autocasts as new PortalItem()
