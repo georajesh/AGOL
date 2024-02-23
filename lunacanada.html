@@ -17,30 +17,21 @@
         height: 100%;
         width: 100%;
       }
-      .header{
-        position: absolute;
-        z-index: 1;
-        left:25%;
-        bottom: 15px; 
-
-      }
-      .header h1, h2{
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        color: rgb(121, 3, 3);
-        text-align: center;
-      }
     </style>
 
     <script src="https://js.arcgis.com/4.28/"></script>
 
     <script>
       require(["esri/views/MapView", "esri/widgets/Legend", "esri/widgets/Expand", "esri/WebMap"],
-      (
+      function(
         MapView,
         Legend,
         Expand,
-        WebMap
-      ) => {
+        WebMap,
+        esriConfig
+      ) 
+      {
+        esriConfig.apiKey = "AAPK7ea8e38f6b4b4f969ab170c41c01634akao_m4e5gL3AyABug_bvD9dN7kbXw7BSISXg4Y558XYUVj59ej6DtByYM0Cms4Tz";
         const webmap = new WebMap({
           portalItem: {
             // autocasts as new PortalItem()
@@ -70,10 +61,6 @@
     </script>
   </head>
   <body>
-    <div class="header">
-      <h1>Water Supply Pipes Burst Risk Assessment</h1>
-      <h2>New Vancouver City, BC, Canada</h2>
-    </div>
     <div id="viewDiv"></div>  
   </body>
 </html>
