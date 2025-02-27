@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map with Base Layer and JPG Overlay</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Ensure the body and html take up the full height */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set the map container to fill the entire screen */
+        #map {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container for the map -->
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map with standard geographic coordinates (WGS84 - EPSG:3857)
+        var map = L.map('map', {
+            zoomControl: true,
+            center: [27.7, 85.3], // Set the center to a geographic location (Kathmandu, for example)
+            zoom: 12,
+        });
+
+        // Add the OpenStreetMap layer as a base map (behind the image layer)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Define the URL of the map image
+        var imageUrl = 'GVFP Kathmandu Valley.jpg'; // Replace with your image path
+
+        // Define the geographical bounds of the image (in latitude and longitude)
+        // These coordinates should correspond to the edges of your map image
+        var imageBounds = [[27.5, 85.0], [27.9, 85.7]]; // Example: Set lat/lon coordinates for the corners of the image
+
+        // Add image overlay to the map with 20% opacity
+        L.imageOverlay(imageUrl, imageBounds, { opacity: 1 }).addTo(map);
+
+        // Fit the map bounds to the image
+        map.fitBounds(imageBounds);
+    </script>
+
+</body>
+</html>
